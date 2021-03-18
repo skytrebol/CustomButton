@@ -1,0 +1,120 @@
+<html lang="ja">
+<head>
+        <meta charset="UTF-8">
+        <title>CustomButton example</title>
+        <meta name="author" content="skytrebol">
+        <meta name="viewport" content="width=device-width,
+         initial-scale=1, maximum-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- link href="/favicon.ico" rel="shortcut icon" -->
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //		Styles
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////-->
+<style>
+body {
+    color: #fff;
+    background-color:#000;
+    //padding:0;
+    //margin:0;
+}
+#_terrain_div{
+	width: 50%;
+	height:auto;
+	min-height:50%;
+}
+</style>
+</head>
+
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //		Body
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////-->        
+<body>
+<header>
+</header>
+<article>
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //		CustomButton demo
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////-->   
+<section>
+
+         <script src="http://code.createjs.com/easeljs-0.8.2.min.js"></script>
+         <script src="http://code.createjs.com/preloadjs-0.6.2.min.js"></script>
+         <script src="http://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+         <script src="../CustomButton.min.js"></script>
+
+<div id="_terrain_div">
+<canvas id="_terrain" width="640" height="400" style="background-color:#888;display:inline;"></canvas>
+</div>
+
+
+
+<script>
+    var canvas_name = "_terrain";
+    var webGL = 0;
+
+    var canvas = document.getElementById(canvas_name);
+    if(! canvas ){ console.log("create canvas failed."); }
+
+    var _stage;
+    if( webGL ){
+        _stage = new createjs.StageGL(canvas,{antialias:true});
+    }else{
+        _stage = new createjs.Stage(canvas);
+    }
+    //var body = new createjs.Container();
+    //_stage.addChild(body);
+
+    var button = new CustomButton(this, _stage, "Test", callback_func, 50, 50, 150, 60, {});
+    var click=0;
+    function callback_func(ev){
+        if(click){ canvas.style.background="#888"; }else{ canvas.style.background="#333"; }
+        click = (click + 1) % 2;
+    }
+
+
+    console.log(button.get_version());
+    button.show();
+
+
+    _stage.update();
+
+    // var timer = setInterval(function(){_thread();}, 200 );
+    // function _thread(){
+    //     _stage.update();
+    // }
+
+
+</script>
+
+
+
+
+
+
+</section>  
+
+
+</article>
+
+
+
+
+<footer>
+
+</footer>
+
+          
+</body>
+
+
+</html>
+
+

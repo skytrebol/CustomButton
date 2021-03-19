@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ja">
 <head>
         <meta charset="UTF-8">
@@ -72,7 +73,8 @@ body {
     //var body = new createjs.Container();
     //_stage.addChild(body);
 
-    var button = new CustomButton(this, _stage, "Test", callback_func, 50, 50, 150, 60, {});
+    var button        = new CustomButton(this, _stage, "Test", callback_func, 50, 50, 150, 60, {});
+    var button_cursor = new CustomButton(this, _stage, "", callback_func, 50, 150, 150, 60, {cursor:"u",debug:1});
     var click=0;
     function callback_func(ev){
         if(click){ canvas.style.background="#888"; }else{ canvas.style.background="#333"; }
